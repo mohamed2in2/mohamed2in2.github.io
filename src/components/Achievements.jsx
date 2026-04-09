@@ -2,32 +2,32 @@ const ACHIEVEMENTS = [
   {
     code: 'ICSC',
     name: 'International Computer Science Competition',
-    year: '2024',
+   
   },
   {
     code: 'IYMC',
     name: 'International Youth Math Challenge',
-    year: '2023–2024',
+
   },
   {
     code: 'IPhR',
     name: 'International Physics Recognition',
-    year: '2024',
+
   },
   {
     code: 'SIC',
     name: 'Scientific Innovation Challenge',
-    year: '2023',
+   
   },
   {
     code: 'DIGITOPIA',
     name: 'Digital Innovation Competition',
-    year: '2024',
+   
   },
   {
     code: 'دوري الروبوتات',
     name: 'School Robot League (دوري الروبوتات للمدارس)',
-    year: '2023–2024',
+   
   },
 ]
 
