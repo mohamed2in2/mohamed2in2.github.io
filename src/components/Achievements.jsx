@@ -2,32 +2,26 @@ const ACHIEVEMENTS = [
   {
     code: 'ICSC',
     name: 'International Computer Science Competition',
-   
   },
   {
     code: 'IYMC',
     name: 'International Youth Math Challenge',
-
   },
   {
     code: 'IPhR',
     name: 'International Physics Recognition',
-
   },
   {
     code: 'SIC',
     name: 'Scientific Innovation Challenge',
-   
   },
   {
     code: 'DIGITOPIA',
     name: 'Digital Innovation Competition',
-   
   },
   {
     code: 'دوري الروبوتات',
     name: 'School Robot League (دوري الروبوتات للمدارس)',
-   
   },
 ]
 
@@ -67,9 +61,6 @@ export default function Achievements() {
                 <div className="flex items-start justify-between mb-3">
                   <span className="font-display text-lg font-bold text-gold">
                     {item.code}
-                  </span>
-                  <span className="text-xs text-gold/50 font-mono bg-gold/10 px-2 py-0.5 rounded-sm border border-gold/15">
-                    {item.year}
                   </span>
                 </div>
                 <p className="text-sand-dark text-sm leading-relaxed">
