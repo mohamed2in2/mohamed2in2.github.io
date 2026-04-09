@@ -36,10 +36,66 @@ export default function Projects() {
         {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PROJECTS.map((project) => (
-            <article
-              key={project.number}
-              className="group card hover:-translate-y-1 cursor-default"
-            >
+            project.href ? (
+              <a
+                key={project.number}
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group card hover:-translate-y-1 cursor-pointer block"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <span className="font-display text-4xl font-black text-gold/20 group-hover:text-gold/40 transition-colors duration-300 select-none">
+                    {project.number}
+                  </span>
+                  <svg
+                    className="w-5 h-5 text-gold/30 group-hover:text-gold transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M7 17L17 7M17 7H7M17 7v10"
+                    />
+                  </svg>
+                </div>
+
+                <h3 className="font-display text-2xl font-bold text-sand mb-2 group-hover:text-gold transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-sand-dark text-sm mb-5 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {project.status ? (
+                  <div className="mb-5">
+                    <span className="tag">{project.status}</span>
+                  </div>
+                ) : null}
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <span className="text-gold text-sm font-semibold flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300 group-hover:text-gold-light">
+                  View Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </span>
+              </a>
+            ) : (
+              <article
+                key={project.number}
+                className="group card hover:-translate-y-1 cursor-default"
+              >
               <div className="flex items-start justify-between mb-4">
                 <span className="font-display text-4xl font-black text-gold/20 group-hover:text-gold/40 transition-colors duration-300 select-none">
                   {project.number}
@@ -80,33 +136,17 @@ export default function Projects() {
                 ))}
               </div>
 
-              {project.href ? (
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-gold text-sm font-semibold flex items-center gap-1.5 hover:gap-3 transition-all duration-300 group-hover:text-gold-light"
-                >
-                  View Project
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </a>
-              ) : (
-                <button className="text-gold text-sm font-semibold flex items-center gap-1.5 hover:gap-3 transition-all duration-300 group-hover:text-gold-light">
-                  View Case Study
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              )}
+              <button className="text-gold text-sm font-semibold flex items-center gap-1.5 hover:gap-3 transition-all duration-300 group-hover:text-gold-light">
+                View Case Study
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </article>
+            )
           ))}
         </div>
       </div>
     </section>
-  )
-}
-
   )
 }
