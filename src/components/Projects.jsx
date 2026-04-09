@@ -10,18 +10,7 @@ const PROJECTS = [
     title: 'Robot League',
     description: 'Robotics competition management system',
     tags: ['Python', 'React', 'MongoDB'],
-  },
-  {
-    number: '03',
-    title: 'Portfolio Engine',
-    description: 'Dynamic portfolio generator',
-    tags: ['Next.js', 'React', 'Node.js'],
-  },
-  {
-    number: '04',
-    title: 'Algorithm Visualizer',
-    description: 'Interactive algorithm learning platform',
-    tags: ['JavaScript', 'D3.js', 'React'],
+    
   },
 ]
 
