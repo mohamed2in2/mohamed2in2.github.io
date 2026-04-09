@@ -4,13 +4,14 @@ const PROJECTS = [
     title: 'Movie App',
     description: 'A comprehensive movie discovery platform',
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
+    href: 'https://github.com/mohamed2in2/urban-tribble',
   },
   {
     number: '02',
     title: 'Robot League',
     description: 'Robotics competition management system',
     tags: ['Python', 'React', 'MongoDB'],
-    
+    status: 'In Progress',
   },
 ]
 
@@ -65,6 +66,12 @@ export default function Projects() {
                 {project.description}
               </p>
 
+              {project.status ? (
+                <div className="mb-5">
+                  <span className="tag">{project.status}</span>
+                </div>
+              ) : null}
+
               <div className="flex flex-wrap gap-2 mb-5">
                 {project.tags.map((tag) => (
                   <span key={tag} className="tag">
@@ -73,16 +80,33 @@ export default function Projects() {
                 ))}
               </div>
 
-              <button className="text-gold text-sm font-semibold flex items-center gap-1.5 hover:gap-3 transition-all duration-300 group-hover:text-gold-light">
-                View Case Study
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gold text-sm font-semibold flex items-center gap-1.5 hover:gap-3 transition-all duration-300 group-hover:text-gold-light"
+                >
+                  View Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </a>
+              ) : (
+                <button className="text-gold text-sm font-semibold flex items-center gap-1.5 hover:gap-3 transition-all duration-300 group-hover:text-gold-light">
+                  View Case Study
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
             </article>
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
   )
 }
