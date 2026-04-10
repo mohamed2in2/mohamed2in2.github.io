@@ -18,13 +18,13 @@ export default function Footer() {
 
           {/* Quick links */}
           <nav className="flex gap-6 flex-wrap justify-center">
-            {['/featured-projects', '#achievements', '#skills', '#contact'].map((href) => (
+            {['#projects', '#achievements', '#skills', '#contact'].map((href) => (
               <a
                 key={href}
                 href={href}
                 className="nav-link capitalize text-sm link-underline"
               >
-                {href === '/featured-projects' ? 'featured projects' : href.replace('#', '')}
+                {href.replace('#', '')}
               </a>
             ))}
           </nav>

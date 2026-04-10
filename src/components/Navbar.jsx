@@ -1,21 +1,16 @@
 import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { label: 'Featured Projects', href: '/featured-projects' },
+  { label: 'Featured Projects', href: '#projects' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
 
-const FEATURED_PROJECTS_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Contact', href: '/#contact' },
-]
-
-export default function Navbar({ isFeaturedProjectsPage = false }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const links = isFeaturedProjectsPage ? FEATURED_PROJECTS_LINKS : NAV_LINKS
+  const links = NAV_LINKS
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30)
@@ -34,7 +29,7 @@ export default function Navbar({ isFeaturedProjectsPage = false }) {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a
-          href={isFeaturedProjectsPage ? '/' : '#hero'}
+          href="#hero"
           className="font-display text-gold font-bold text-xl tracking-widest hover:text-gold-light transition-colors"
         >
           KemetCraft
@@ -47,11 +42,9 @@ export default function Navbar({ isFeaturedProjectsPage = false }) {
               {link.label}
             </a>
           ))}
-          {isFeaturedProjectsPage ? null : (
-            <a href="#contact" className="btn-primary text-sm py-2 px-5">
-              Get in Touch
-            </a>
-          )}
+          <a href="#contact" className="btn-primary text-sm py-2 px-5">
+            Get in Touch
+          </a>
         </nav>
 
         {/* Mobile hamburger */}
@@ -98,15 +91,13 @@ export default function Navbar({ isFeaturedProjectsPage = false }) {
               {link.label}
             </a>
           ))}
-          {isFeaturedProjectsPage ? null : (
-            <a
-              href="#contact"
-              className="btn-primary text-sm w-fit"
-              onClick={() => setMenuOpen(false)}
-            >
-              Get in Touch
-            </a>
-          )}
+          <a
+            href="#contact"
+            className="btn-primary text-sm w-fit"
+            onClick={() => setMenuOpen(false)}
+          >
+            Get in Touch
+          </a>
         </nav>
       )}
     </header>

@@ -12,6 +12,7 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <Projects />
         <div className="hr-gold max-w-6xl mx-auto" />
         <Achievements />
         <Skills />
@@ -22,26 +23,10 @@ function HomePage() {
   )
 }
 
-function FeaturedProjectsPage() {
-  return (
-    <>
-      <Navbar isFeaturedProjectsPage />
-      <main className="pt-24">
-        <Projects />
-      </main>
-      <Footer />
-    </>
-  )
-}
-
 export default function App() {
-  const decodedPathname = decodeURIComponent(window.location.pathname).toLowerCase()
-  const isFeaturedProjectsPage =
-    decodedPathname === '/featured-projects' || decodedPathname === '/featured projects'
-
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0d0a05' }}>
-      {isFeaturedProjectsPage ? <FeaturedProjectsPage /> : <HomePage />}
+      <HomePage />
     </div>
   )
 }
