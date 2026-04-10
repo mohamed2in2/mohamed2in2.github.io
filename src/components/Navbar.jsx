@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { label: 'Projects', href: '#projects' },
+  { label: 'Featured Projects', href: '/featured-projects' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+const FEATURED_PROJECTS_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'Contact', href: '/#contact' },
+]
+
+export default function Navbar({ isFeaturedProjectsPage = false }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const links = isFeaturedProjectsPage ? FEATURED_PROJECTS_LINKS : NAV_LINKS
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30)
@@ -28,7 +34,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#hero"
+          href={isFeaturedProjectsPage ? '/' : '#hero'}
           className="font-display text-gold font-bold text-xl tracking-widest hover:text-gold-light transition-colors"
         >
           KemetCraft
@@ -36,14 +42,16 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <a key={link.href} href={link.href} className="nav-link link-underline">
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="btn-primary text-sm py-2 px-5">
-            Get in Touch
-          </a>
+          {isFeaturedProjectsPage ? null : (
+            <a href="#contact" className="btn-primary text-sm py-2 px-5">
+              Get in Touch
+            </a>
+          )}
         </nav>
 
         {/* Mobile hamburger */}
@@ -80,7 +88,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <nav className="md:hidden bg-pharaoh-mid border-t border-gold/10 px-6 py-4 flex flex-col gap-4">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -90,13 +98,15 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="btn-primary text-sm w-fit"
-            onClick={() => setMenuOpen(false)}
-          >
-            Get in Touch
-          </a>
+          {isFeaturedProjectsPage ? null : (
+            <a
+              href="#contact"
+              className="btn-primary text-sm w-fit"
+              onClick={() => setMenuOpen(false)}
+            >
+              Get in Touch
+            </a>
+          )}
         </nav>
       )}
     </header>
