@@ -33,19 +33,23 @@
 
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-gold text-pharaoh font-semibold px-6 py-3 rounded-sm
-           hover:bg-gold-light transition-all duration-300 hover:shadow-lg hover:shadow-gold/20
-           hover:-translate-y-0.5;
+           hover:bg-gold-light transition-all duration-300 hover:shadow-lg hover:shadow-gold/30
+           hover:-translate-y-0.5 active:scale-95;
   }
 
   .btn-outline {
     @apply inline-flex items-center gap-2 border border-gold text-gold font-semibold px-6 py-3 rounded-sm
-           hover:bg-gold hover:text-pharaoh transition-all duration-300 hover:shadow-lg hover:shadow-gold/20
-           hover:-translate-y-0.5;
+           hover:bg-gold hover:text-pharaoh transition-all duration-300 hover:shadow-lg hover:shadow-gold/30
+           hover:-translate-y-0.5 active:scale-95;
   }
 
   .card {
     @apply bg-pharaoh-mid border border-gold/10 rounded-sm p-6
            hover:border-gold/30 transition-all duration-300;
+    box-shadow: 0 0 0 0 rgba(212,175,55,0);
+  }
+  .card:hover {
+    box-shadow: 0 8px 32px -8px rgba(212,175,55,0.12), 0 0 0 1px rgba(212,175,55,0.08);
   }
 
   .tag {
@@ -93,6 +97,29 @@
 
 .fade-in-up {
   animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Hero entrance animation */
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: heroEntrance 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Gold shimmer on tags */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
 /* Custom scrollbar */

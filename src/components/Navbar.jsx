@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { label: 'Featured Projects', href: '#projects' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
@@ -10,7 +10,6 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const links = NAV_LINKS
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30)
@@ -37,7 +36,7 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
+          {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className="nav-link link-underline">
               {link.label}
             </a>
@@ -81,7 +80,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <nav className="md:hidden bg-pharaoh-mid border-t border-gold/10 px-6 py-4 flex flex-col gap-4">
-          {links.map((link) => (
+          {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}

@@ -6,27 +6,19 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-function HomePage() {
+export default function App() {
   return (
-    <>
+    <div className="min-h-screen" style={{ backgroundColor: '#0d0a05' }}>
       <Navbar />
       <main>
         <Hero />
-        <Projects />
         <div className="hr-gold max-w-6xl mx-auto" />
+        <Projects />
         <Achievements />
         <Skills />
         <Contact />
       </main>
       <Footer />
-    </>
-  )
-}
-
-export default function App() {
-  return (
-    <div className="min-h-screen" style={{ backgroundColor: '#0d0a05' }}>
-      <HomePage />
     </div>
   )
 }
