@@ -12,29 +12,11 @@ const OPEN_SOURCE = [
     link: null,
     githubLink: null,
   },
-  {
-    number: '02',
-    title: 'Algorithm Visualizer',
-    description:
-      'Interactive step-by-step algorithm learning platform with animated sorting, pathfinding, and graph traversal visualizations.',
-    tags: ['JavaScript', 'D3.js', 'React'],
-    link: null,
-    githubLink: null,
-  },
-  {
-    number: '03',
-    title: 'Portfolio Engine',
-    description:
-      'Dynamic portfolio generator that creates customizable developer portfolios from JSON config — the very engine powering this site.',
-    tags: ['Next.js', 'React', 'Node.js'],
-    link: null,
-    githubLink: null,
-  },
 ]
 
 const CLOSED_SOURCE = [
   {
-    number: '04',
+    number: '02',
     title: 'Robot League',
     description:
       'Smart agricultural robot designed for crop care automation — built for the School Robot League (دوري الروبوتات للمدارس). Features autonomous navigation via tracked wheels on clay soil, precision seeding with servo-controlled tubes, capacitive soil moisture sensing for targeted irrigation, PIR-based bird deterrence with audio alerts, and obstacle detection via HC-SR04 ultrasonic sensors. Full electronics circuit simulated on Tinkercad.',
@@ -73,7 +55,7 @@ const CLOSED_SOURCE = [
     },
   },
   {
-    number: '05',
+    number: '03',
     title: 'Code-up.tech',
     description:
       'Full-stack Arabic EdTech platform for Egyptian secondary school students. Features video course delivery, AI-guided learning assistant, smart quizzes, performance analytics dashboard, PWA support, and a leaderboard. Serving 1000+ active users.',
